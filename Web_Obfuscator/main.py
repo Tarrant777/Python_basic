@@ -6,29 +6,31 @@ import os
 
 """
 # 路徑
-path = "/Users/tarrant/Desktop/Tarrantnew/newtianyu/MyJSGame/src/"
-
-a = os.listdir(path)
+# goalPath = "/Users/tarrant/Desktop/Tarrantnew/newtianyu/MyJSGame/src/"
+goalPath = "/Users/tiffany/Documents/mygame/newtianyu/MyJSGame/src/"
+a = os.listdir(goalPath)
 file_name = []
 directory = []
 for i in a:
     if i.endswith(".js"):
-        file_name.append(i)
+        file_name.append(goalPath+i)
     elif i == "scene":
-        for j in os.listdir(path + "scene/"):
+        for j in os.listdir(goalPath + "scene/"):
             if j.endswith(".js"):
-                file_name.append("scene/" + j)
+                file_name.append(goalPath+"scene/" + j)
             elif j == "main":
-                for k in os.listdir(path + "scene/" + "main/"):
+                for k in os.listdir(goalPath + "scene/" + "main/"):
                     if k.endswith(".js"):
-                        file_name.append("scene/" + "main/" + k)
+                        file_name.append(goalPath+"scene/" + "main/" + k)
                     elif k == "formain":
-                        for l in os.listdir(path + "scene/" + "main/" + ""):
+                        for l in os.listdir(goalPath + "scene/" + "main/" + "formain/"):
                             if l.endswith(".js"):
-                                file_name.append("scene/" + "main/" + l)
-"""
+                                file_name.append(goalPath+"scene/" + "main/" + "formain/"+ l)
 
-goalPath = "/Users/tarrant/Desktop/Tarrantnew/newtianyu/MyJSGame/src/"
+"""
+#  goalPath = "/Users/tarrant/Desktop/Tarrantnew/newtianyu/MyJSGame/src/"
+#  goalPath = "/Users/office/Documents/newtianyu/newtianyu/MyJSGame/src/"
+goalPath = "/Users/tiffany/Documents/mygame/newtianyu/MyJSGame/src/"
 file_name = []
 
 
@@ -48,15 +50,25 @@ loadFile(goalPath)
 print(file_name)
 print(len(file_name))
 print(time.strftime("%H:%M:%S"))
-del_file = ['/Users/tarrant/Desktop/Tarrantnew/newtianyu/MyJSGame/src/scene/games/fishing/src/HrFishData/HrFishText.js',
-            '/Users/tarrant/Desktop/Tarrantnew/newtianyu/MyJSGame/src/scene/games/fishing/src/HrFishLobby/HrLobbyView/HrRoomScrollViewUI/HrRoomListLayer.js',
-            '/Users/tarrant/Desktop/Tarrantnew/newtianyu/MyJSGame/src/scene/games/fishing/src/HrFishLobby/HrLobbyView/HrRoomScrollViewUI/HrRoomListWithoutRoom1Layer.js',
-            '/Users/tarrant/Desktop/Tarrantnew/newtianyu/MyJSGame/src/scene/games/fishing/src/Common/ProtoBuf.js',
-            '/Users/tarrant/Desktop/Tarrantnew/newtianyu/MyJSGame/src/scene/games/fishing/src/Common/ByteBufferAB.js',
-            '/Users/tarrant/Desktop/Tarrantnew/newtianyu/MyJSGame/src/GameUtil.js',
-            '/Users/tarrant/Desktop/Tarrantnew/newtianyu/MyJSGame/src/net/SHA256.js',
-            '/Users/tarrant/Desktop/Tarrantnew/newtianyu/MyJSGame/src/logic/BaseScene.js']
-
+del_file = [goalPath + 'scene/games/fishing/src/HrFishData/HrFishText.js',
+            goalPath + 'scene/games/fishing/src/HrFishLobby/HrLobbyView/HrRoomScrollViewUI/HrRoomListLayer.js',
+            goalPath + 'scene/games/fishing/src/HrFishLobby/HrLobbyView/HrRoomScrollViewUI/HrRoomListWithoutRoom1Layer.js',
+            goalPath + 'scene/games/fishing/src/Common/ProtoBuf.js',
+            goalPath + 'scene/games/fishing/src/Common/ByteBufferAB.js',
+            goalPath + 'GameUtil.js',
+            goalPath + 'net/SHA256.js',
+            goalPath + 'logic/BaseScene.js',
+            goalPath + 'scene/games/game_dzpk/DZPKAPI.js',
+            goalPath + 'HrFishGame/HrFishView/HrGameUISkill/HrSkillLayer.js',
+            goalPath + 'scene/games/fishing/src/HrFishGame/HrFishView/HrGameMainUI/HrTrumpetShowLayer.js',
+            goalPath + 'scene/games/fishing/src/Common/platform.js',
+            goalPath + "scene/main/MainLayer.js",
+            goalPath + "net/GameSysNet.js",
+            goalPath + "scene/views/pay/PayLayer.js",
+            goalPath + "scene/views/pay/PayLayer_ios.js",
+            goalPath + "scene/share/game/GameEventNotifier.js",
+            goalPath + "net/GameNet.js",
+            goalPath + "scene/views/bank/BankSaveCashLayer.js"]
 
 for d in del_file:
     if d in file_name:
@@ -71,11 +83,6 @@ for x in file_name:
     # options = Options()
     # options.add_argument("--headless")
     # driver = webdriver.Firefox(firefox_options=options)
-
-    # driver.get("file:///Users/tarrant/Desktop/Tarrantnew/newtianyu/MyJSGame/src/" + x)
-    # driver.find_element_by_xpath("//pre[1]").send_keys((Keys.COMMAND, 'a'))
-    # driver.find_element_by_xpath("//pre[1]").send_keys((Keys.COMMAND, 'c'))
-    # a = driver.find_element_by_xpath("//pre[1]")
 
     driver.get("http://www.javascriptobfuscator.com/Javascript-Obfuscator.aspx")
     # print(driver.find_element_by_id('ctl00_MainContent_TextBox1').get_attribute('value'))
@@ -92,7 +99,6 @@ for x in file_name:
         file.write(code_after)
         file.close()
     else:
-        print("有問題:",x)
+        print("無法自動:", x)
     driver.close()
     print(time.strftime("%H:%M:%S"), x)
-
